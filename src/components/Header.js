@@ -1,9 +1,13 @@
-// src/components/Header.js
 import React from 'react';
+
 const Header = () => {
     return (
         <header className="header">
-            <h1 className="header-title">Tempora</h1>
+            <img 
+                src="/images/tempora-logo.png" 
+                alt="Tempora Logo" 
+                className="header-logo"
+            />
         </header>
     );
 };

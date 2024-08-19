@@ -16,11 +16,17 @@ html, body {
 
 /* Header Styles */
 .header {
-  background: linear-gradient(to right, #003366, #002d3d); /* Gradiente azul marino */
+  background: linear-gradient(to bottom, #003366 0%, #003366 10%, rgb(74, 139, 165) 50%, #003366 90%, #003366 100%);
   padding: 20px;
+  padding: 0; /* Quita el padding para que la imagen ocupe todo el espacio */
   text-align: center;
+  width: 100%; /* Asegura que el header ocupe todo el ancho */
+  height: 200px; /* Ajusta la altura del header según sea necesario */
   color: white;
+  overflow: hidden; /* Oculta cualquier desbordamiento de la imagen */
 }
+
+
 
 .header-title {
   margin: 0;
@@ -81,3 +87,18 @@ html, body {
 .footer div {
   width: 45%;
 }
+
+/* Logo Styles */
+.header-logo {
+  width: auto; /* La imagen ocupará todo el ancho del header */
+  height: 110%; 
+
+  object-fit: cover; /* Asegura que la imagen cubra todo el área */
+  transition: transform 0.3s ease; /* Efecto de transición para hacer que crezca al pasar el mouse */
+}
+
+
+.header-logo:hover {
+  transform: scale(1.05); /* Aumenta un poco el tamaño al pasar el mouse */
+}
+
