@@ -1,21 +1,26 @@
-// src/components/ProductGallery.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ProductGallery = () => {
-    const images = [
-        'url1.jpg',
-        'url2.jpg',
-        'url3.jpg',
-    ];
+    const [productos, setProductos] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/api/productos') 
+            .then(response => response.json())
+            .then(data => setProductos(data))
+            .catch(error => console.error('Error fetching products:', error));
+    }, []);
 
     return (
         <div className="gallery">
-            {images.map((url, index) => (
-                <img key={index} src={url} alt="Watch" />
+            {productos.map(producto => (
+                <div key={producto.id}>
+                    <img src={producto.img} alt={producto.name} />
+                    <p>{producto.name} - ${producto.price}</p>
+                </div>
             ))}
+
         </div>
     );
 };
 
 export default ProductGallery;
-
