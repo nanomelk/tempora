@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/git%20checkout%20gh-pages/static/css/main.f9ce9c95.css",
-    "main.js": "/git%20checkout%20gh-pages/static/js/main.7d1bf4b7.js",
-    "static/js/453.ef22d7a9.chunk.js": "/git%20checkout%20gh-pages/static/js/453.ef22d7a9.chunk.js",
-    "index.html": "/git%20checkout%20gh-pages/index.html",
-    "main.f9ce9c95.css.map": "/git%20checkout%20gh-pages/static/css/main.f9ce9c95.css.map",
-    "main.7d1bf4b7.js.map": "/git%20checkout%20gh-pages/static/js/main.7d1bf4b7.js.map",
-    "453.ef22d7a9.chunk.js.map": "/git%20checkout%20gh-pages/static/js/453.ef22d7a9.chunk.js.map"
+    "main.css": "/tempora/static/css/main.f9ce9c95.css",
+    "main.js": "/tempora/static/js/main.3fdbb2b7.js",
+    "static/js/453.ef22d7a9.chunk.js": "/tempora/static/js/453.ef22d7a9.chunk.js",
+    "index.html": "/tempora/index.html",
+    "main.f9ce9c95.css.map": "/tempora/static/css/main.f9ce9c95.css.map",
+    "main.3fdbb2b7.js.map": "/tempora/static/js/main.3fdbb2b7.js.map",
+    "453.ef22d7a9.chunk.js.map": "/tempora/static/js/453.ef22d7a9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f9ce9c95.css",
-    "static/js/main.7d1bf4b7.js"
+    "static/js/main.3fdbb2b7.js"
   ]
 }
