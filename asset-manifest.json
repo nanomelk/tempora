@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/tempora/static/css/main.f9ce9c95.css",
-    "main.js": "/tempora/static/js/main.3fdbb2b7.js",
+    "main.js": "/tempora/static/js/main.cab06461.js",
     "static/js/453.ef22d7a9.chunk.js": "/tempora/static/js/453.ef22d7a9.chunk.js",
     "index.html": "/tempora/index.html",
     "main.f9ce9c95.css.map": "/tempora/static/css/main.f9ce9c95.css.map",
-    "main.3fdbb2b7.js.map": "/tempora/static/js/main.3fdbb2b7.js.map",
+    "main.cab06461.js.map": "/tempora/static/js/main.cab06461.js.map",
     "453.ef22d7a9.chunk.js.map": "/tempora/static/js/453.ef22d7a9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f9ce9c95.css",
-    "static/js/main.3fdbb2b7.js"
+    "static/js/main.cab06461.js"
   ]
 }
