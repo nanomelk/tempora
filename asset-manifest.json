@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/nanomelk/tempora/static/css/main.f9ce9c95.css",
-    "main.js": "/nanomelk/tempora/static/js/main.b2ed350b.js",
-    "static/js/453.ef22d7a9.chunk.js": "/nanomelk/tempora/static/js/453.ef22d7a9.chunk.js",
-    "index.html": "/nanomelk/tempora/index.html",
-    "main.f9ce9c95.css.map": "/nanomelk/tempora/static/css/main.f9ce9c95.css.map",
-    "main.b2ed350b.js.map": "/nanomelk/tempora/static/js/main.b2ed350b.js.map",
-    "453.ef22d7a9.chunk.js.map": "/nanomelk/tempora/static/js/453.ef22d7a9.chunk.js.map"
+    "main.css": "/tempora/static/css/main.f9ce9c95.css",
+    "main.js": "/tempora/static/js/main.3fdbb2b7.js",
+    "static/js/453.ef22d7a9.chunk.js": "/tempora/static/js/453.ef22d7a9.chunk.js",
+    "index.html": "/tempora/index.html",
+    "main.f9ce9c95.css.map": "/tempora/static/css/main.f9ce9c95.css.map",
+    "main.3fdbb2b7.js.map": "/tempora/static/js/main.3fdbb2b7.js.map",
+    "453.ef22d7a9.chunk.js.map": "/tempora/static/js/453.ef22d7a9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f9ce9c95.css",
-    "static/js/main.b2ed350b.js"
+    "static/js/main.3fdbb2b7.js"
   ]
 }
