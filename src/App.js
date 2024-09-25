@@ -5,8 +5,9 @@ import NavBar from './components/NavBar';
 import Home from './components/Home';
 import ProductGallery from './components/ProductGallery';
 import Footer from './components/Footer';
-import RelojForm from './components/RelojForm'; // Importa el componente del formulario
-import './App.css'; // Importa el archivo CSS aquí
+import RelojForm from './components/RelojForm';
+import RelojForm from './components/Register'; 
+import './App.css'; 
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
                         <Route path="/productos" element={<ProductGallery />} />
                         <Route path="/contacto" element={<Footer />} />
                         <Route path="/cargar-reloj" element={<RelojForm />} /> {/* Nueva ruta */}
+                        <Route path="/registro" element={<Register />} />
                     </Routes>
                 </main>
                 <Footer />
