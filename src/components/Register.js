@@ -10,16 +10,16 @@ const Register = () => {
   // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     const userData = {
       name,
       email,
       password
     };
-
+    console.log(userData);
     try {
       // Llamada a la API usando fetch
-      const response = await fetch('http://localhost:5000/api/users/register', {
+      const response = await fetch('https://tempora-back.onrender.com/api/users/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -40,6 +40,7 @@ const Register = () => {
     } catch (error) {
       setMessage('Hubo un error al intentar registrar el usuario.');
     }
+    
   };
 
   return (
