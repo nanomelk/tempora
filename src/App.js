@@ -6,7 +6,7 @@ import Home from './components/Home';
 import ProductGallery from './components/ProductGallery';
 import Footer from './components/Footer';
 import RelojForm from './components/RelojForm';
-import RelojForm from './components/Register'; 
+import Register from './components/Register'; 
 import './App.css'; 
 
 const App = () => {
