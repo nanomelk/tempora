@@ -1,5 +1,7 @@
 /* src/App.css */
 
+
+
 html, body {
   margin: 0;
   padding: 0;
@@ -317,3 +319,60 @@ p {
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999; /* Below the popup but above other content */
 }
+
+/* Estilos para el Navbar */
+.nav {
+  background: linear-gradient(to right, #003366, #002d3d); /* Gradiente azul marino */
+  padding: 10px;
+  text-align: center;
+  position: relative; /* Asegura que el toggle esté alineado correctamente */
+}
+
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  transition: max-height 0.3s ease-out;
+}
+
+.nav-item {
+  margin: 0 15px;
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Icono para el menú desplegable */
+.nav-toggle {
+  display: none; /* Oculto en pantallas grandes */
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+}
+
+/* Media Query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+    max-height: 0; /* Oculta el menú por defecto */
+    overflow: hidden;
+  }
+
+  .nav-list.open {
+    max-height: 300px; /* Altura máxima cuando está abierto */
+  }
+
+  .nav-toggle {
+    display: block; /* Mostrar el botón en pantallas pequeñas */
+  }
+
+  .nav-item {
+    margin: 10px 0; /* Espacio entre los items en vista móvil */
+  }
+}
+
