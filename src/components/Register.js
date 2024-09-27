@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
+import { useNavigate } from 'react-router-dom'; // Para redirección
 
 const AuthForm = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -10,13 +11,18 @@ const AuthForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate(); // Hook para redirección
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage('');
     setError(false);
-    
+
     const userData = { email, password, ...(isRegister && { name }) };
 
     try {
@@ -27,57 +33,38 @@ const AuthForm = () => {
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userData)
+        body: JSON.stringify(userData),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        setMessage(`Usuario registrado con éxito: ${data.name}`);
+        setMessage(data.message || 'Operación exitosa');
         setName('');
         setEmail('');
         setPassword('');
         setShowPopup(true);
 
-        // Redirigir al formulario de inicio de sesión después de registrar
         if (isRegister) {
-          setTimeout(() => {
-            setIsRegister(false);
-            setIsFormVisible(true);
-          }, 2000); // Espera 2 segundos antes de mostrar el login
+          // Después del registro, mostrar el formulario de inicio de sesión
+          setIsRegister(false);
+          setIsFormVisible(true);
+        } else {
+          navigate('/'); // Redirige a la página de inicio si es un login
         }
       } else {
-        setMessage(`Error: ${data.message}`);
+        setMessage(data.message || 'Error al procesar la solicitud');
         setError(true);
         setShowPopup(true);
       }
     } catch (error) {
-      setMessage('Hubo un error al intentar procesar la solicitud.');
+      setMessage('Hubo un error en la conexión.');
       setError(true);
       setShowPopup(true);
     } finally {
       setLoading(false);
     }
   };
-
-  const showForm = (register) => {
-    setIsRegister(register);
-    setIsFormVisible(true);
-  };
-
-  const closePopup = () => {
-    setShowPopup(false);
-  };
-
-  useEffect(() => {
-    let timer;
-    if (showPopup) {
-      timer = setTimeout(() => {
-        closePopup();
-      }, 10000); // Cerrar después de 10 segundos
-    }
-    return () => clearTimeout(timer);
-  }, [showPopup]);
 
   return (
     <div className="auth-container">
@@ -87,8 +74,8 @@ const AuthForm = () => {
         </div>
       )}
       <div className="button-group">
-        <button className="auth-button" onClick={() => showForm(false)}>Iniciar sesión</button>
-        <button className="auth-button" onClick={() => showForm(true)}>Registrarse</button>
+        <button className="auth-button" onClick={() => setIsFormVisible(false)}>Iniciar sesión</button>
+        <button className="auth-button" onClick={() => { setIsFormVisible(true); setIsRegister(true); }}>Registrarse</button>
       </div>
 
       {isFormVisible && (
