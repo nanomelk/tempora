@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Para redirección
 
 const AuthForm = () => {
@@ -15,6 +15,13 @@ const AuthForm = () => {
 
   const closePopup = () => {
     setShowPopup(false);
+  };
+
+  // Función para almacenar el token en una cookie
+  const setCookie = (token) => {
+    const expirationTime = new Date();
+    expirationTime.setTime(expirationTime.getTime() + (60 * 60 * 1000)); // 1 hora
+    document.cookie = `token=${token}; path=/; SameSite=Lax; expires=${expirationTime.toUTCString()}`;
   };
 
   const handleSubmit = async (e) => {
@@ -38,25 +45,32 @@ const AuthForm = () => {
 
       const data = await response.json();
 
+      console.log(data);
+
       if (response.ok) {
         setMessage(data.message || 'Operación exitosa');
         setName('');
         setEmail('');
         setPassword('');
         setShowPopup(true);
-
+    
         if (isRegister) {
-          // Después del registro, mostrar el formulario de inicio de sesión
-          setIsRegister(false);
-          setIsFormVisible(true);
+            // Después del registro, mostrar el formulario de inicio de sesión
+            setIsRegister(false);
+            setIsFormVisible(true);
         } else {
-          navigate('/'); // Redirige a la página de inicio si es un login
+            // Almacena el token en cookies
+            if (data.token) {
+                setCookie('token', data.token, 1); // Almacena el token en cookies por 1 día
+                navigate('/'); // Redirige a la página de inicio si es un login
+            } else {
+                setMessage('Token no recibido');
+                setError(true);
+                setShowPopup(true);
+            }
         }
-      } else {
-        setMessage(data.message || 'Error al procesar la solicitud');
-        setError(true);
-        setShowPopup(true);
-      }
+    }
+    
     } catch (error) {
       setMessage('Hubo un error en la conexión.');
       setError(true);
@@ -74,7 +88,7 @@ const AuthForm = () => {
         </div>
       )}
       <div className="button-group">
-        <button className="auth-button" onClick={() => setIsFormVisible(false)}>Iniciar sesión</button>
+        <button className="auth-button" onClick={() => { setIsFormVisible(true); setIsRegister(false); }}>Iniciar sesión</button>
         <button className="auth-button" onClick={() => { setIsFormVisible(true); setIsRegister(true); }}>Registrarse</button>
       </div>
 
